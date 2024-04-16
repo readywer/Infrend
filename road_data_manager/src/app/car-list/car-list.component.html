@@ -1,0 +1,24 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Típus</th>
+            <th>Rendszám</th>
+            <th>Üzemanyag típus</th>
+            <th>Üzemanyag fogyasztás</th>
+            <th>Kezdő kilométer</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for( car of cars; track $index){
+        <tr>
+            <td>{{car.id}}</td>
+            <td>{{car.type}}</td>
+            <td>{{car.licensePlate}}</td>
+            <td>{{car.fuelType}}</td>
+            <td>{{car.fuelConsuption}}</td>
+            <td>{{car.startingMileage}}</td>
+        </tr>
+        }
+    </tbody>
+</table>
