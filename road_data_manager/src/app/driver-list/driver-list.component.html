@@ -8,20 +8,24 @@
             <th>Születési idő</th>
             <th>Jogosítvány szám</th>
             <th>Jogosítvány lejárata</th>
+            <th>Módosítás</th>
         </tr>
     </thead>
     <tbody>
         @for( driver of drivers; track $index){
         <tr>
             <td>
-                <button class="btn btn-danger btn-sm" (click)="deleteDriver(driver.id)">Törlés</button>
-              </td>
+                <button class="btn btn-danger btn-sm" (click)="deleteDriver(driver)">Törlés</button>
+            </td>
             <td>{{driver.id}}</td>
             <td>{{driver.name}}</td>
             <td>{{driver.address}}</td>
             <td>{{driver.dateOfBirth}}</td>
             <td>{{driver.driversLicenseId}}</td>
             <td>{{driver.licenseExpireDate}}</td>
+            <td>
+                <button class="btn btn-primary btn-sm" (click)="goToDriverForm(driver.id)">Módosítás</button>
+            </td>
         </tr>
         }
     </tbody>

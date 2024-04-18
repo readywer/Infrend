@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-md-6">
+        <form [formGroup]="driverForm">
+            <div class="mb-3">
+                <label for="name" class="form-label">Név</label>
+                <input type="text" class="form-control" id="name" formControlName="name">
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label">Lakcím</label>
+                <input type="text" class="form-control" id="address" formControlName="address">
+            </div>
+            <div class="mb-3">
+                <label for="dateOfBirth" class="form-label">Születési idő</label>
+                <input type="text" class="form-control" id="dateOfBirth" formControlName="dateOfBirth">
+            </div>
+            <div class="mb-3">
+                <label for="driversLicenseId" class="form-label">Jogosítvány szám</label>
+                <input type="text" class="form-control" id="driversLicenseId" formControlName="driversLicenseId">
+            </div>
+            <div class="mb-3">
+                <label for="licenseExpireDate" class="form-label">Jogosítvány lejárata</label>
+                <input type="text" class="form-control" id="licenseExpireDate" formControlName="licenseExpireDate">
+            </div>
+        </form>
+        <div class="text-end">
+            <button class="btn btn-outline-primary" (click)="saveDriver()">Mentés</button>
+        </div>
+    </div>
+</div>

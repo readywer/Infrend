@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { DriverService } from '../services/driver.service';
 import { DriverDTO } from '../../../models';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-driver-list',
@@ -12,6 +13,7 @@ import { DriverDTO } from '../../../models';
 export class DriverListComponent implements OnInit{
   driverService = inject(DriverService);
   drivers: DriverDTO[] = [];
+  router = inject(Router);
 
   ngOnInit(): void {
       this.driverService.getAll().subscribe({
@@ -19,15 +21,20 @@ export class DriverListComponent implements OnInit{
         error: err=> console.error(err)
       })
   }
+  goToDriverForm(id: number) {
+    this.router.navigate(['/edit-driver', id]);
+  }
   
-  deleteDriver(driverId: number): void {
-    this.driverService.delete(driverId).subscribe({
+  deleteDriver(driver: DriverDTO) {
+    this.driverService.delete(driver.id).subscribe({
       next: () => {
-        // Sikeres törlés esetén frissítsük a sofőrök listáját
-        this.drivers = this.drivers.filter(driver => driver.id !== driverId);
+        const index = this.drivers.indexOf(driver);
+        if (index > -1) {
+          this.drivers.splice(index, 1);
+        }
       },
       error: err => console.error(err)
     });
   }
-
+  
 }

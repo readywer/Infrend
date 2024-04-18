@@ -1,23 +1,31 @@
 <table class="table table-striped">
     <thead>
         <tr>
+            <th>Törlés</th>
             <th>ID</th>
             <th>Típus</th>
             <th>Rendszám</th>
             <th>Üzemanyag típus</th>
             <th>Üzemanyag fogyasztás</th>
             <th>Kezdő kilométer</th>
+            <th>Módosítás</th>
         </tr>
     </thead>
     <tbody>
         @for( car of cars; track $index){
         <tr>
+            <td>
+                <button class="btn btn-danger btn-sm" (click)="deleteCar(car)">Törlés</button>
+            </td>
             <td>{{car.id}}</td>
             <td>{{car.type}}</td>
             <td>{{car.licensePlate}}</td>
             <td>{{car.fuelType}}</td>
             <td>{{car.fuelConsuption}}</td>
             <td>{{car.startingMileage}}</td>
+            <td>
+                <button class="btn btn-primary btn-sm"(click)="goToCarForm(car.id)">Módosítás</button>
+            </td>
         </tr>
         }
     </tbody>

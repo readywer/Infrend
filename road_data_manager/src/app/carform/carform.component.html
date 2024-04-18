@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-md-6">
+        <form [formGroup]="carForm">
+            <div class="mb-3">
+                <label for="type" class="form-label">Típus</label>
+                <input type="text" class="form-control" id="type" formControlName="type">
+            </div>
+            <div class="mb-3">
+                <label for="licensePlate" class="form-label">Rendszám</label>
+                <input type="text" class="form-control" id="licensePlate" formControlName="licensePlate">
+            </div>
+            <div class="mb-3">
+                <label for="fuelType" class="form-label">Üzemanyag típus</label>
+                <input type="text" class="form-control" id="fuelType" formControlName="fuelType">
+            </div>
+            <div class="mb-3">
+                <label for="fuelConsuption" class="form-label">Üzemanyag fogyasztás</label>
+                <input type="text" class="form-control" id="fuelConsuption" formControlName="fuelConsuption">
+            </div>
+            <div class="mb-3">
+                <label for="startingMileage" class="form-label">Kezdő kilométer</label>
+                <input type="text" class="form-control" id="startingMileage" formControlName="startingMileage">
+            </div>
+        </form>
+        <div class="text-end">
+            <button class="btn btn-outline-primary" (click)="saveCar()">Mentés</button>
+        </div>
+    </div>
+</div>

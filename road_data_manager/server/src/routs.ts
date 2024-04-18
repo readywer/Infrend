@@ -13,13 +13,13 @@ export function getRouter(){
     router.get('/driver/:id',driverController.getOne);
     router.post('/driver',driverController.create);
     router.put('/driver',driverController.update);
-    router.get('/driver/:id',driverController.delete);
+    router.delete('/driver/:id',driverController.delete);
 
     router.get('/car',carcontroller.getAll);
     router.get('/car/:id',carcontroller.getOne);
     router.post('/car',carcontroller.create);
     router.put('/car',carcontroller.update);
-    router.get('/car/:id',carcontroller.delete);
+    router.delete('/car/:id',carcontroller.delete);
 
     return router;
 }
