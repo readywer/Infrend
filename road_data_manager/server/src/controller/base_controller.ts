@@ -41,7 +41,7 @@ export abstract class Controller {
     update = async (req, res) => {
         try {
             const entity = this.repository.create(req.body as object);
-            const currentEntity = await this.repository.findOneBy({ id: entity.id })
+            const currentEntity = await this.repository.findOneBy({ id: entity.id });
             if (!currentEntity) {
                 return this.handleError(res, null, 404, 'Entity is not found.');
             }

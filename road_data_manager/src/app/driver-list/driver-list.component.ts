@@ -2,11 +2,12 @@ import { Component, OnInit, inject } from '@angular/core';
 import { DriverService } from '../services/driver.service';
 import { DriverDTO } from '../../../models';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-driver-list',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './driver-list.component.html',
   styleUrl: './driver-list.component.css'
 })
@@ -14,7 +15,7 @@ export class DriverListComponent implements OnInit{
   driverService = inject(DriverService);
   drivers: DriverDTO[] = [];
   router = inject(Router);
-
+  currentDate = new Date().toISOString().slice(0, 10);
   ngOnInit(): void {
       this.driverService.getAll().subscribe({
         next: drivers=> this.drivers= drivers,

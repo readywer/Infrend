@@ -13,7 +13,8 @@
     </thead>
     <tbody>
         @for( driver of drivers; track $index){
-        <tr>
+        <tr [ngClass]="{'color': (driver.licenseExpireDate < currentDate)}">
+
             <td>
                 <button class="btn btn-danger btn-sm" (click)="deleteDriver(driver)">Törlés</button>
             </td>

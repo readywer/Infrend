@@ -2,10 +2,11 @@ import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
 
 @Entity()
 export class Driver {
-    @PrimaryGeneratedColumn()
-    id: number
 
-    @Column()
+    @PrimaryGeneratedColumn()
+    id: number;
+
+    @Column({ unique: true })
     driversLicenseId: string;
 
     @Column()
@@ -17,7 +18,7 @@ export class Driver {
     @Column()
     licenseExpireDate: string;
 
-    @Column()
+    @Column({ type: 'date' })
     dateOfBirth: string;
 
 }
