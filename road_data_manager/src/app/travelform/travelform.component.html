@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-md-6">
+        <form [formGroup]="travelForm">
+            <div class="mb-3">
+                <label for="date" class="form-label">Dátum</label>
+                <input type="text" class="form-control" id="date" formControlName="date">
+            </div>
+            <div class="mb-3">
+                <label for="type" class="form-label">Típus</label>
+                <input type="text" class="form-control" id="type" formControlName="type">
+            </div>
+            <div class="mb-3">
+                <label for="startPlace" class="form-label">Indulási hely</label>
+                <input type="text" class="form-control" id="startPlace" formControlName="startPlace">
+            </div>
+            <div class="mb-3">
+                <label for="endPlace" class="form-label">Érkezési hely</label>
+                <input type="text" class="form-control" id="endPlace" formControlName="endPlace">
+            </div>
+            <div class="mb-3">
+                <label for="traveledDistance" class="form-label">Megtett kilométer</label>
+                <input type="text" class="form-control" id="traveledDistance" formControlName="traveledDistance">
+            </div>
+            <div class="mb-3">
+                <label for="newMilage" class="form-label">Új kilométer állás</label>
+                <input type="text" class="form-control" id="newMilage" formControlName="newMilage">
+            </div>
+            <div class="mb-3">
+                <label for="driver" class="form-label">Sofőr</label>
+                <input type="text" class="form-control" id="driver" formControlName="driver">
+            </div>
+            <div class="mb-3">
+                <label for="car" class="form-label">Autó</label>
+                <input type="text" class="form-control" id="car" formControlName="car">
+            </div>
+        </form>
+        <div class="text-end">
+            <button class="btn btn-outline-primary" (click)="saveTravel()">Mentés</button>
+        </div>
+    </div>
+</div>

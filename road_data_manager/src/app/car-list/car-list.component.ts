@@ -10,21 +10,21 @@ import { Router } from '@angular/router';
   templateUrl: './car-list.component.html',
   styleUrl: './car-list.component.css'
 })
-export class CarListComponent implements OnInit{
+export class CarListComponent implements OnInit {
   carService = inject(CarService);
   cars: CarDTO[] = [];
   router = inject(Router);
 
   ngOnInit(): void {
-      this.carService.getAll().subscribe({
-        next: cars=> this.cars= cars,
-        error: err=> console.error(err)
-      })
+    this.carService.getAll().subscribe({
+      next: cars => this.cars = cars,
+      error: err => console.error(err)
+    })
   }
   goToCarForm(id: number) {
     this.router.navigate(['/edit-car', id]);
   }
-  
+
   deleteCar(car: CarDTO) {
     this.carService.delete(car.id).subscribe({
       next: () => {

@@ -18,7 +18,7 @@ export class DriverformComponent implements OnInit {
   activatedRoute = inject(ActivatedRoute);
 
   driverForm = this.formBuilder.group<DriverDTO>({
-    id: 0,  
+    id: 0,
     driversLicenseId: '',
     name: '',
     address: '',
@@ -43,7 +43,7 @@ export class DriverformComponent implements OnInit {
   saveDriver() {
     const driver = this.driverForm.value as DriverDTO;
 
-    if(this.isNewDriver){
+    if (this.isNewDriver) {
       this.driverService.create(driver).subscribe({
         next: () => {
           this.router.navigateByUrl('/drivers');
@@ -53,7 +53,7 @@ export class DriverformComponent implements OnInit {
         }
       });
     }
-    else{
+    else {
       this.driverService.update(driver).subscribe({
         next: () => {
           this.router.navigateByUrl('/drivers');
@@ -63,6 +63,6 @@ export class DriverformComponent implements OnInit {
         }
       });
     }
-    
+
   }
 }

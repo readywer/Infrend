@@ -20,8 +20,8 @@ export interface CarDTO {
 }
 export interface TravelDTO {
     id: number;
-    driver: DriverDTO;
-    car: CarDTO;
+    driver: null | DriverDTO;
+    car: null | CarDTO;
     date: string;
     type: TravelType;
     startPlace: string;

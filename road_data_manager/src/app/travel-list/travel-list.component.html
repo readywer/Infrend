@@ -1,0 +1,39 @@
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Törlés</th>
+            <th>ID</th>
+            <th>Dátum</th>
+            <th>Típus</th>
+            <th>Indulási hely</th>
+            <th>Érkezési hely</th>
+            <th>Megtett kilométer</th>
+            <th>Új kilométer állás</th>
+            <th>Sofőr</th>
+            <th>Autó</th>
+            <th>Módosítás</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for( travel of travels; track $index){
+        <tr>
+            <td>
+                <button class="btn btn-danger btn-sm" (click)="deleteTravel(travel)">Törlés</button>
+            </td>
+            <td>{{travel.id}}</td>
+            <td>{{travel.date}}</td>
+            <td>{{travel.type}}</td>
+            <td>{{travel.startPlace}}</td>
+            <td>{{travel.endPlace}}</td>
+            <td>{{travel.traveledDistance}}</td>
+            <td>{{travel.newMilage}}</td>
+            <td>{{travel.driver}}</td>
+            <td>{{travel.car}}</td>
+            <td>
+                <button class="btn btn-primary btn-sm" (click)="goToTravelForm(travel.id)">Módosítás</button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

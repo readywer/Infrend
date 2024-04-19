@@ -11,7 +11,7 @@ import { CarDTO } from '../../../models';
   templateUrl: './carform.component.html',
   styleUrl: './carform.component.css'
 })
-export class CarformComponent implements OnInit{
+export class CarformComponent implements OnInit {
   carService = inject(CarService);
   formBuilder = inject(FormBuilder);
   router = inject(Router);
@@ -43,7 +43,7 @@ export class CarformComponent implements OnInit{
   saveCar() {
     const car = this.carForm.value as CarDTO;
 
-    if(this.isNewCar){
+    if (this.isNewCar) {
       this.carService.create(car).subscribe({
         next: () => {
           this.router.navigateByUrl('/cars');
@@ -53,7 +53,7 @@ export class CarformComponent implements OnInit{
         }
       });
     }
-    else{
+    else {
       this.carService.update(car).subscribe({
         next: () => {
           this.router.navigateByUrl('/cars');
@@ -63,6 +63,6 @@ export class CarformComponent implements OnInit{
         }
       });
     }
-    
+
   }
 }
