@@ -28,8 +28,8 @@
             <td>{{travel.endPlace}}</td>
             <td>{{travel.traveledDistance}}</td>
             <td>{{travel.newMilage}}</td>
-            <td>{{travel.driver}}</td>
-            <td>{{travel.car}}</td>
+            <td>{{travel.driver?.name}}</td>
+            <td>{{travel.car?.type}}</td>
             <td>
                 <button class="btn btn-primary btn-sm" (click)="goToTravelForm(travel.id)">Módosítás</button>
             </td>

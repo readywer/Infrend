@@ -1,7 +1,9 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm"
+import { CarDTO } from "../../../models";
+import { Travel } from "./Travel";
 
 @Entity()
-export class Car {
+export class Car implements CarDTO {
 
     @PrimaryGeneratedColumn()
     id: number;
@@ -16,9 +18,11 @@ export class Car {
     fuelType: string;
 
     @Column()
-    fuelConsuption: string;
+    fuelConsuption: number;
 
     @Column()
-    startingMileage: string;
+    startingMileage: number;
 
+    @OneToMany(() => Travel, (travel) => travel.car)
+    travels: Travel[];
 }

@@ -1,21 +1,19 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm"
 import { Car } from './Car';
 import { Driver } from './Driver';
-import { TravelType } from "../../../models";
+import { CarDTO, DriverDTO, TravelDTO, TravelType } from "../../../models";
 
 @Entity()
-export class Travel {
+export class Travel implements TravelDTO {
 
     @PrimaryGeneratedColumn()
     id: number;
 
-    @OneToOne(type => Driver)
-    @JoinColumn()
-    driver: Driver;
+    @ManyToOne(() => Driver, (driver) => driver.travels, { eager: true })
+    driver: DriverDTO;
 
-    @OneToOne(type => Car)
-    @JoinColumn()
-    car: Car;
+    @ManyToOne(() => Car, (car) => car.travels, { eager: true })
+    car: CarDTO;
 
     @Column({ type: 'date' })
     date: string;
@@ -25,7 +23,7 @@ export class Travel {
         enum: TravelType,
         default: TravelType.Work
     })
-    type: string;
+    type: TravelType;
 
     @Column()
     startPlace: string;
@@ -34,9 +32,9 @@ export class Travel {
     endPlace: string;
 
     @Column()
-    traveledDistance: string;
+    traveledDistance: number;
 
     @Column()
-    newMilage: string;
+    newMilage: number;
 
 }

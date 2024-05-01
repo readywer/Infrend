@@ -22,8 +22,8 @@ export class CarformComponent implements OnInit {
     licensePlate: '',
     type: '',
     fuelType: '',
-    fuelConsuption: '',
-    startingMileage: ''
+    fuelConsuption: 0,
+    startingMileage: 0
   });
 
   isNewCar = true;

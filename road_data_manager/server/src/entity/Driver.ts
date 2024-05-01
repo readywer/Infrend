@@ -1,7 +1,9 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm"
+import { DriverDTO } from "../../../models";
+import { Travel } from "./Travel";
 
 @Entity()
-export class Driver {
+export class Driver implements DriverDTO {
 
     @PrimaryGeneratedColumn()
     id: number;
@@ -21,4 +23,6 @@ export class Driver {
     @Column({ type: 'date' })
     dateOfBirth: string;
 
+    @OneToMany(() => Travel, (travel) => travel.driver)
+    travels: Travel[];
 }

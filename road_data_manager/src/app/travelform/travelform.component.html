@@ -7,7 +7,10 @@
             </div>
             <div class="mb-3">
                 <label for="type" class="form-label">Típus</label>
-                <input type="text" class="form-control" id="type" formControlName="type">
+                <select class="form-select" id="type" formControlName="type">
+                    <option Work>Céges</option>
+                    <option Private>Magán</option>
+                </select>
             </div>
             <div class="mb-3">
                 <label for="startPlace" class="form-label">Indulási hely</label>
@@ -27,15 +30,25 @@
             </div>
             <div class="mb-3">
                 <label for="driver" class="form-label">Sofőr</label>
-                <input type="text" class="form-control" id="driver" formControlName="driver">
+                <select class="form-select" id="driver" formControlName="driver">
+                    @for(driver of drivers; track $index){
+                    <option [ngValue]="{id: driver.id}">{{driver.name}} {{driver.driversLicenseId}}</option>
+                    }
+                </select>
             </div>
             <div class="mb-3">
                 <label for="car" class="form-label">Autó</label>
-                <input type="text" class="form-control" id="car" formControlName="car">
+                <select class="form-select" id="car" formControlName="car">
+                    @for(car of cars; track $index){
+                    <option [ngValue]="{id: car.id}">{{car.type}} {{car.licensePlate}}</option>
+                    }
+                </select>
             </div>
         </form>
         <div class="text-end">
             <button class="btn btn-outline-primary" (click)="saveTravel()">Mentés</button>
+            <button class="btn btn-outline-primary" (click)="saveTravelWithComeback()">Mentés és visszaút
+                generálása</button>
         </div>
     </div>
 </div>

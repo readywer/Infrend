@@ -5,6 +5,7 @@ import { DriverformComponent } from './driverform/driverform.component';
 import { CarformComponent } from './carform/carform.component';
 import { TravelListComponent } from './travel-list/travel-list.component';
 import { TravelformComponent } from './travelform/travelform.component';
+import { MonthlyQueryComponent } from './monthly-query/monthly-query.component';
 
 export const routes: Routes = [
     {
@@ -42,5 +43,9 @@ export const routes: Routes = [
     {
         path: 'edit-travel/:id',
         component: TravelformComponent
+    },
+    {
+        path: 'monthly-query',
+        component: MonthlyQueryComponent
     }
 ];

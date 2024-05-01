@@ -15,8 +15,8 @@ export interface CarDTO {
     licensePlate: string;
     type: string;
     fuelType: string;
-    fuelConsuption: string;
-    startingMileage: string;
+    fuelConsuption: number;
+    startingMileage: number;
 }
 export interface TravelDTO {
     id: number;
@@ -26,6 +26,6 @@ export interface TravelDTO {
     type: TravelType;
     startPlace: string;
     endPlace: string;
-    traveledDistance: string;
-    newMilage: string;
+    traveledDistance: number;
+    newMilage: number;
 }

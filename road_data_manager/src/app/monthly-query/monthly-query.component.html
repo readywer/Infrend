@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-md-4">
+        <label for="datePicker">Dátum:</label>
+        <input type="month" id="datePicker" class="form-control">
+    </div>
+    <div class="col-md-4">
+        <label for="selectList">Autó:</label>
+        <select id="car" class="form-select" formControlName="car">
+            @for(car of cars; track $index){
+            <option [ngValue]="{id: car.id}">{{car.type}} {{car.licensePlate}}</option>
+            }
+        </select>
+    </div>
+    <div class="col-md-4">
+        <button class="btn btn-primary mt-4">Lekérdez</button>
+    </div>
+</div>
