@@ -19,7 +19,7 @@ export class TravelListComponent implements OnInit {
     this.travelService.getAll().subscribe({
       next: travels => this.travels = travels,
       error: err => console.error(err)
-    })
+    });
   }
   goToTravelForm(id: number) {
     this.router.navigate(['/edit-travel', id]);
