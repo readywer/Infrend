@@ -2,7 +2,6 @@ import { Controller } from "./base_controller";
 import { AppDataSource } from "../data-source";
 import { User } from "../entity/User";
 import jwt from 'jsonwebtoken';
-
 import bcrypt from 'bcrypt';
 
 export class UserController extends Controller {

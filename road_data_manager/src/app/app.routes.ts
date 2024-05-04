@@ -9,11 +9,16 @@ import { MonthlyQueryComponent } from './monthly-query/monthly-query.component';
 import { LoginComponent } from './login/login.component';
 import { inject } from '@angular/core';
 import { AuthService } from './services/auth.service';
+import { RegisterComponent } from './register/register.component';
 
 export const routes: Routes = [
     {
         path: 'login',
         component: LoginComponent
+    },
+    {
+        path: 'register',
+        component: RegisterComponent
     },
     {
         path: 'drivers',
@@ -22,12 +27,12 @@ export const routes: Routes = [
     {
         path: 'add-driver',
         component: DriverformComponent,
-        canActivate: [ () => inject(AuthService).preventGuestAccess() ]
+        canActivate: [() => inject(AuthService).preventGuestAccess()]
     },
     {
         path: 'edit-driver/:id',
         component: DriverformComponent,
-        canActivate: [ () => inject(AuthService).preventGuestAccess() ]
+        canActivate: [() => inject(AuthService).preventGuestAccess()]
     },
     {
         path: 'cars',
@@ -36,12 +41,12 @@ export const routes: Routes = [
     {
         path: 'add-car',
         component: CarformComponent,
-        canActivate: [ () => inject(AuthService).preventGuestAccess() ]
+        canActivate: [() => inject(AuthService).preventGuestAccess()]
     },
     {
         path: 'edit-car/:id',
         component: CarformComponent,
-        canActivate: [ () => inject(AuthService).preventGuestAccess() ]
+        canActivate: [() => inject(AuthService).preventGuestAccess()]
     },
     {
         path: 'travels',
@@ -50,12 +55,12 @@ export const routes: Routes = [
     {
         path: 'add-travel',
         component: TravelformComponent,
-        canActivate: [ () => inject(AuthService).preventGuestAccess() ]
+        canActivate: [() => inject(AuthService).preventGuestAccess()]
     },
     {
         path: 'edit-travel/:id',
         component: TravelformComponent,
-        canActivate: [ () => inject(AuthService).preventGuestAccess() ]
+        canActivate: [() => inject(AuthService).preventGuestAccess()]
     },
     {
         path: 'monthly-query',
