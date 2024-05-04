@@ -30,17 +30,17 @@
         </tr>
     </thead>
     <tbody>
-        
+
         <tr>
             <td>{{selectedCar.id}}</td>
             <td>{{selectedCar.type}}</td>
             <td>{{selectedCar.licensePlate}}</td>
             <td>{{selectedCar.fuelType}}</td>
-            <td>{{selectedCar.fuelConsuption}}</td>
-            <td>{{minNewMilage}}</td>
-            <td>{{maxNewMilage}}</td>
+            <td>{{selectedCar.fuelConsuption}} L/100km</td>
+            <td>{{minNewMilage}} Km</td>
+            <td>{{maxNewMilage}} Km</td>
         </tr>
-        
+
     </tbody>
 </table>
 <div class="row mt-2">
@@ -57,10 +57,10 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>{{privateTravel}}</td>
-                    <td>{{privateFuel}}</td>
-                    <td>{{privatePrice}}</td>
-                    <td>{{privateFullPrice}}</td>
+                    <td>{{privateTravel}} Km</td>
+                    <td>{{privateFuel}} Ft</td>
+                    <td>{{privatePrice}} Ft</td>
+                    <td>{{privateFullPrice}} Ft</td>
                 </tr>
             </tbody>
         </table>
@@ -84,8 +84,8 @@
                     <td>{{travel.date}}</td>
                     <td>{{travel.startPlace}}</td>
                     <td>{{travel.endPlace}}</td>
-                    <td>{{travel.traveledDistance}}</td>
-                    <td>{{travel.newMilage}}</td>
+                    <td>{{travel.traveledDistance}} Km</td>
+                    <td>{{travel.newMilage}} Km</td>
                     <td>{{travel.driver?.name}}</td>
                 </tr>
                 }
@@ -105,10 +105,10 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>{{workTravel}}</td>
-                    <td>{{workFuel}}</td>
-                    <td>{{workPrice}}</td>
-                    <td>{{workFullPrice}}</td>
+                    <td>{{workTravel}} Km</td>
+                    <td>{{workFuel}} Ft</td>
+                    <td>{{workPrice}} Ft</td>
+                    <td>{{workFullPrice}} Ft</td>
                 </tr>
             </tbody>
         </table>
@@ -132,8 +132,8 @@
                     <td>{{travel.date}}</td>
                     <td>{{travel.startPlace}}</td>
                     <td>{{travel.endPlace}}</td>
-                    <td>{{travel.traveledDistance}}</td>
-                    <td>{{travel.newMilage}}</td>
+                    <td>{{travel.traveledDistance}} Km</td>
+                    <td>{{travel.newMilage}} Km</td>
                     <td>{{travel.driver?.name}}</td>
                 </tr>
                 }
