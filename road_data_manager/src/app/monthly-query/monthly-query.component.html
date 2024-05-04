@@ -1,14 +1,14 @@
 <form [formGroup]="queryForm">
     <div class="row">
         <div class="col-md-4">
-            <label for="datePicker">Dátum:</label>
-            <input type="month" id="datePicker" class="form-control" formControlName="date">
+            <label for="date">Dátum:</label>
+            <input type="month" id="date" class="form-control" formControlName="date">
         </div>
         <div class="col-md-4">
-            <label for="selectList">Autó:</label>
+            <label for="car">Autó:</label>
             <select id="car" class="form-select" formControlName="car">
                 @for(car of cars; track $index){
-                <option [ngValue]="{id: car.id}">{{car.type}} {{car.licensePlate}}</option>
+                <option [ngValue]="car.id">{{car.type}} {{car.licensePlate}}</option>
                 }
             </select>
         </div>

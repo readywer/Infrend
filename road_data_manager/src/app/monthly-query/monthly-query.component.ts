@@ -49,42 +49,60 @@ export class MonthlyQueryComponent implements OnInit {
   }
 
   selectquery() {
-    //todo: járműválasztás, hónapválasztás
-    const card = this.queryForm.get('car');
+    const carId = this.queryForm.value.car;
+    const selectedDate = this.queryForm.value.date;
 
-    const foundCar = this.cars.find(car => car.id === 2);
+    console.log(carId)
+    console.log(selectedDate)
+    const foundCar = this.cars.find(car => car.id === carId);
     if (foundCar) {
       this.selectedCar = foundCar;
     } else {
       return;
     }
 
-    this.travels = this.travels.filter(travel => {
+    var travels = this.travels.filter(travel => {
       return travel.car?.id === this.selectedCar.id;
     });
-
-    // Utazások szűrése a kiválasztott év és hónap alapján
-    const [selectedYear, selectedMonth] = this.selectedDate.split('-');
-    this.travels = this.travels.filter(travel => {
+    
+    const [selectedYear, selectedMonth] = selectedDate!.split('-');
+    travels = travels.filter(travel => {
       const [travelYear, travelMonth] = travel.date.split('-');
       return travelYear === selectedYear && travelMonth === selectedMonth;
     });
 
-    const maxNewMilageTravel = this.travels.reduce((maxTravel, currentTravel) => {
-      return currentTravel.newMilage > maxTravel.newMilage ? currentTravel : maxTravel;
-    }, this.travels[0]);
-    this.maxNewMilage = maxNewMilageTravel.newMilage;
+    if (travels.length == 0) {
+      this.travelWork = [];
+      this.travelPrivate = [];
+      this.selectedfuelConsuption = 0;
+      this.privateTravel = 0;
+      this.privateFuel = 0;
+      this.privatePrice = 0;
+      this.privateFullPrice = 0;
+      this.workTravel = 0;
+      this.workFuel = 0;
+      this.workPrice = 0;
+      this.workFullPrice = 0;
+      this.maxNewMilage = 0;
+      this.minNewMilage = 0;
+      return;
+    }
 
-    const minNewMilageTravel = this.travels.reduce((minTravel, currentTravel) => {
+    const maxNewMilageTravel = travels.reduce((maxTravel, currentTravel) => {
+      return currentTravel.newMilage > maxTravel.newMilage ? currentTravel : maxTravel;
+    }, travels[0]);
+    this.maxNewMilage = maxNewMilageTravel ? maxNewMilageTravel.newMilage : 0;
+
+    const minNewMilageTravel = travels.reduce((minTravel, currentTravel) => {
       return currentTravel.newMilage < minTravel.newMilage ? currentTravel : minTravel;
-    }, this.travels[0]);
+    }, travels[0]);
     this.minNewMilage = minNewMilageTravel.newMilage - minNewMilageTravel.traveledDistance;
 
-    this.travelWork = this.travels.filter(travel => {
+    this.travelWork = travels.filter(travel => {
       return travel.type === TravelType.Work;
     });
 
-    this.travelPrivate = this.travels.filter(travel => {
+    this.travelPrivate = travels.filter(travel => {
       return travel.type === TravelType.Private;
     });
 

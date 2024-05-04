@@ -31,7 +31,7 @@
           <a class="nav-link" routerLink="/register">Regisztráció</a>
         </li>
         <li class="nav-item" *ngIf="authService.isLoggedIn()">
-          <a class="nav-link" href="#" (click)="logout()">Kilépés</a>
+          <a class="nav-link" (click)="logout()">Kilépés</a>
         </li>
       </ul>
     </div>
