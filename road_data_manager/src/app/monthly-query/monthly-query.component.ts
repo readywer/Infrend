@@ -2,7 +2,6 @@ import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { CarDTO, TravelDTO, TravelType } from '../../../models';
 import { CarService } from '../services/car.service';
-import { getLocaleDateFormat } from '@angular/common';
 import { TravelService } from '../services/travel.service';
 
 
@@ -17,11 +16,13 @@ export class MonthlyQueryComponent implements OnInit {
   formBuilder = inject(FormBuilder);
   carService = inject(CarService);
   travelService = inject(TravelService);
+
   cars: CarDTO[] = [];
   selectedCar: CarDTO = {} as CarDTO;
   travels: TravelDTO[] = [];
   travelWork: TravelDTO[] = [];
   travelPrivate: TravelDTO[] = [];
+
   selectedDate = '2024-05';
   fuelprice = 480;
   kmprice = 10;
@@ -94,6 +95,7 @@ export class MonthlyQueryComponent implements OnInit {
     this.workTravel = this.travelWork.reduce((totalDistance, travel) => {
       return totalDistance + travel.traveledDistance;
     }, 0);
+
     if (this.selectedCar)
       this.selectedfuelConsuption = this.selectedCar.fuelConsuption;
 

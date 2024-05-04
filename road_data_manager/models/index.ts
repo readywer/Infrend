@@ -29,3 +29,17 @@ export interface TravelDTO {
     traveledDistance: number;
     newMilage: number;
 }
+export interface UserDTO {
+    id: number;
+    name: string;
+    email: string;
+    password: string | null;
+}
+export interface LoginDTO {
+    email: string;
+    password: string;
+}
+
+export interface AccessTokenDTO {
+    accessToken: string;
+}

@@ -1,21 +1,20 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Törlés</th>
+            <th *ngIf="authService.isLoggedIn()">Törlés</th>
             <th>ID</th>
             <th>Név</th>
             <th>Lakcím</th>
             <th>Születési idő</th>
             <th>Jogosítvány szám</th>
             <th>Jogosítvány lejárata</th>
-            <th>Módosítás</th>
+            <th *ngIf="authService.isLoggedIn()">Módosítás</th>
         </tr>
     </thead>
     <tbody>
         @for( driver of drivers; track $index){
         <tr [ngClass]="{'color': (driver.licenseExpireDate < currentDate)}">
-
-            <td>
+            <td *ngIf="authService.isLoggedIn()">
                 <button class="btn btn-danger btn-sm" (click)="deleteDriver(driver)">Törlés</button>
             </td>
             <td>{{driver.id}}</td>
@@ -24,7 +23,7 @@
             <td>{{driver.dateOfBirth}}</td>
             <td>{{driver.driversLicenseId}}</td>
             <td>{{driver.licenseExpireDate}}</td>
-            <td>
+            <td *ngIf="authService.isLoggedIn()">
                 <button class="btn btn-primary btn-sm" (click)="goToDriverForm(driver.id)">Módosítás</button>
             </td>
         </tr>

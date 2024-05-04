@@ -1,7 +1,7 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Törlés</th>
+            <th *ngIf="authService.isLoggedIn()">Törlés</th>
             <th>ID</th>
             <th>Dátum</th>
             <th>Típus</th>
@@ -11,13 +11,13 @@
             <th>Új kilométer állás</th>
             <th>Sofőr</th>
             <th>Autó</th>
-            <th>Módosítás</th>
+            <th *ngIf="authService.isLoggedIn()">Módosítás</th>
         </tr>
     </thead>
     <tbody>
         @for( travel of travels; track $index){
         <tr>
-            <td>
+            <td *ngIf="authService.isLoggedIn()">
                 <button class="btn btn-danger btn-sm" (click)="deleteTravel(travel)">Törlés</button>
             </td>
             <td>{{travel.id}}</td>
@@ -29,7 +29,7 @@
             <td>{{travel.newMilage}} Km</td>
             <td>{{travel.driver?.name}}</td>
             <td>{{travel.car?.type}}</td>
-            <td>
+            <td *ngIf="authService.isLoggedIn()">
                 <button class="btn btn-primary btn-sm" (click)="goToTravelForm(travel.id)">Módosítás</button>
             </td>
         </tr>

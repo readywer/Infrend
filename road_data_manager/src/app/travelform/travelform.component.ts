@@ -21,11 +21,13 @@ export class TravelformComponent implements OnInit {
   activatedRoute = inject(ActivatedRoute);
   carService = inject(CarService);
   driverService = inject(DriverService);
+
   cars: CarDTO[] = [];
   drivers: DriverDTO[] = [];
   types: TravelType[] = [TravelType.Work, TravelType.Private];
   isNewTravel = true;
   today = new Date();
+
   travelForm = this.formBuilder.group<TravelDTO>({
     id: 0,
     driver: null,
@@ -37,7 +39,6 @@ export class TravelformComponent implements OnInit {
     traveledDistance: 0,
     newMilage: 0
   });
-
 
   ngOnInit(): void {
     this.carService.getAll().subscribe(cars => this.cars = cars);
@@ -89,7 +90,6 @@ export class TravelformComponent implements OnInit {
         }
       });
     }
-
   }
 
   saveTravelWithComeback() {
@@ -115,6 +115,7 @@ export class TravelformComponent implements OnInit {
         }
       });
     }
+    
     travel.newMilage = Number(travel.newMilage) + Number(travel.traveledDistance);
     const temp = travel.endPlace;
     travel.endPlace = travel.startPlace

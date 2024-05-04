@@ -2,18 +2,22 @@ import { Component, OnInit, inject } from '@angular/core';
 import { TravelService } from '../services/travel.service';
 import { TravelDTO } from '../../../models';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-travel-list',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './travel-list.component.html',
   styleUrl: './travel-list.component.css'
 })
 export class TravelListComponent implements OnInit {
   travelService = inject(TravelService);
-  travels: TravelDTO[] = [];
   router = inject(Router);
+  authService = inject(AuthService);
+
+  travels: TravelDTO[] = [];
 
   ngOnInit(): void {
     this.travelService.getAll().subscribe({
@@ -21,6 +25,7 @@ export class TravelListComponent implements OnInit {
       error: err => console.error(err)
     });
   }
+
   goToTravelForm(id: number) {
     this.router.navigate(['/edit-travel', id]);
   }
@@ -36,5 +41,4 @@ export class TravelListComponent implements OnInit {
       error: err => console.error(err)
     });
   }
-
 }

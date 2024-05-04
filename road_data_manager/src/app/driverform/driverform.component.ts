@@ -17,6 +17,8 @@ export class DriverformComponent implements OnInit {
   router = inject(Router);
   activatedRoute = inject(ActivatedRoute);
 
+  isNewDriver = true;
+
   driverForm = this.formBuilder.group<DriverDTO>({
     id: 0,
     driversLicenseId: '',
@@ -26,7 +28,6 @@ export class DriverformComponent implements OnInit {
     dateOfBirth: ''
   });
 
-  isNewDriver = true;
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params['id'];
     if (id) {
@@ -63,6 +64,5 @@ export class DriverformComponent implements OnInit {
         }
       });
     }
-
   }
 }

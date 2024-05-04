@@ -17,6 +17,8 @@ export class CarformComponent implements OnInit {
   router = inject(Router);
   activatedRoute = inject(ActivatedRoute);
 
+  isNewCar = true;
+
   carForm = this.formBuilder.group<CarDTO>({
     id: 0,
     licensePlate: '',
@@ -26,7 +28,6 @@ export class CarformComponent implements OnInit {
     startingMileage: 0
   });
 
-  isNewCar = true;
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params['id'];
     if (id) {
@@ -63,6 +64,5 @@ export class CarformComponent implements OnInit {
         }
       });
     }
-
   }
 }

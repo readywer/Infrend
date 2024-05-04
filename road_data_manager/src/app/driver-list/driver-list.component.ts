@@ -3,6 +3,7 @@ import { DriverService } from '../services/driver.service';
 import { DriverDTO } from '../../../models';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-driver-list',
@@ -13,15 +14,19 @@ import { CommonModule } from '@angular/common';
 })
 export class DriverListComponent implements OnInit {
   driverService = inject(DriverService);
-  drivers: DriverDTO[] = [];
   router = inject(Router);
+  authService = inject(AuthService);
+
+  drivers: DriverDTO[] = [];
   currentDate = new Date().toISOString().slice(0, 10);
+
   ngOnInit(): void {
     this.driverService.getAll().subscribe({
       next: drivers => this.drivers = drivers,
       error: err => console.error(err)
     })
   }
+
   goToDriverForm(id: number) {
     this.router.navigate(['/edit-driver', id]);
   }
@@ -37,5 +42,4 @@ export class DriverListComponent implements OnInit {
       error: err => console.error(err)
     });
   }
-
 }
