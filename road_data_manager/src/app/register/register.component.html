@@ -3,10 +3,10 @@
         <div class="col-md-6 card bg-light p-4">
             <h3 class="card-title text-center mb-3">Regisztráció</h3>
             <div class="card-body">
-                <form>
+                <form [formGroup]="registerForm">
                     <div class="mb-2">
-                        <label for="lastName" class="form-label">Név:</label>
-                        <input type="text" class="form-control" id="Name" autocomplete="on" formControlName="name">
+                        <label for="name" class="form-label">Név:</label>
+                        <input type="text" class="form-control" id="name" autocomplete="on" formControlName="name">
                     </div>
                     <div class="mb-2">
                         <label for="email" class="form-label">E-mail cím:</label>

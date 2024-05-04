@@ -25,14 +25,14 @@ export class RegisterComponent {
   });
 
   saveUser() {
-    const car = this.registerForm.value as UserDTO;
-      this.userService.create(car).subscribe({
-        next: () => {
-          this.router.navigateByUrl('/login');
-        },
-        error: (err) => {
-          console.error(err);
-        }
-      });
+    const user = this.registerForm.value as UserDTO;
+    this.userService.create(user).subscribe({
+      next: () => {
+        this.router.navigateByUrl('/login');
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
   }
 }
